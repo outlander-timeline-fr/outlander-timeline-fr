@@ -1,12 +1,9 @@
 <xml xmlns:o="urn:schemas-microsoft-com:office:office">
  <o:MainFile HRef="../index.htm"/>
- <o:File HRef="index_16616_image001.png" PublicationID="index_16616"/>
- <o:File HRef="index_16616_image002.png" PublicationID="index_16616"/>
- <o:File HRef="index_16616_image003.png" PublicationID="index_16616"/>
- <o:File HRef="index_16616_image004.png" PublicationID="index_16616"/>
- <o:File HRef="index_16616_image005.png" PublicationID="index_16616"/>
- <o:File HRef="index_16616_image006.png" PublicationID="index_16616"/>
- <o:File HRef="index_16616_image007.png" PublicationID="index_16616"/>
- <o:File HRef="index_16616_image008.png" PublicationID="index_16616"/>
+ <o:File HRef="stylesheet.css"/>
+ <o:File HRef="tabstrip.htm"/>
+ <o:File HRef="sheet001.htm"/>
+ <o:File HRef="image002.png"/>
+ <o:File HRef="image001.png"/>
  <o:File HRef="filelist.xml"/>
 </xml>
