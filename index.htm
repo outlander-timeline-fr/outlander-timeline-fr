@@ -4,321 +4,3847 @@ xmlns:x="urn:schemas-microsoft-com:office:excel"
 xmlns="http://www.w3.org/TR/REC-html40">
 
 <head>
-<meta name="Excel Workbook Frameset">
-<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
 <meta name=ProgId content=Excel.Sheet>
 <meta name=Generator content="Microsoft Excel 15">
 <link rel=File-List href="index_fichiers/filelist.xml">
-<![if !supportTabStrip]>
-<link id="shLink" href="index_fichiers/sheet001.htm">
-
-<link id="shLink">
-
-<script language="JavaScript">
-<!--
- var c_lTabs=1;
-
- var c_rgszSh=new Array(c_lTabs);
- c_rgszSh[0] = "Feuil1";
-
-
-
- var c_rgszClr=new Array(8);
- c_rgszClr[0]="window";
- c_rgszClr[1]="buttonface";
- c_rgszClr[2]="windowframe";
- c_rgszClr[3]="windowtext";
- c_rgszClr[4]="threedlightshadow";
- c_rgszClr[5]="threedhighlight";
- c_rgszClr[6]="threeddarkshadow";
- c_rgszClr[7]="threedshadow";
-
- var g_iShCur;
- var g_rglTabX=new Array(c_lTabs);
-
-function fnGetIEVer()
-{
- var ua=window.navigator.userAgent
- var msie=ua.indexOf("MSIE")
- if (msie>0 && window.navigator.platform=="Win32")
-  return parseInt(ua.substring(msie+5,ua.indexOf(".", msie)));
- else
-  return 0;
-}
-
-function fnBuildFrameset()
-{
- var szHTML="<frameset rows=\"*,18\" border=0 width=0 frameborder=no framespacing=0>"+
-  "<frame src=\""+document.all.item("shLink")[0].href+"\" name=\"frSheet\" noresize>"+
-  "<frameset cols=\"54,*\" border=0 width=0 frameborder=no framespacing=0>"+
-  "<frame src=\"\" name=\"frScroll\" marginwidth=0 marginheight=0 scrolling=no>"+
-  "<frame src=\"\" name=\"frTabs\" marginwidth=0 marginheight=0 scrolling=no>"+
-  "</frameset></frameset><plaintext>";
-
- with (document) {
-  open("text/html","replace");
-  write(szHTML);
-  close();
- }
-
- fnBuildTabStrip();
-}
-
-function fnBuildTabStrip()
-{
- var szHTML=
-  "<html><head><style>.clScroll {font:8pt Courier New;color:"+c_rgszClr[6]+";cursor:default;line-height:10pt;}"+
-  ".clScroll2 {font:10pt Arial;color:"+c_rgszClr[6]+";cursor:default;line-height:11pt;}</style></head>"+
-  "<body onclick=\"event.returnValue=false;\" ondragstart=\"event.returnValue=false;\" onselectstart=\"event.returnValue=false;\" bgcolor="+c_rgszClr[4]+" topmargin=0 leftmargin=0><table cellpadding=0 cellspacing=0 width=100%>"+
-  "<tr><td colspan=6 height=1 bgcolor="+c_rgszClr[2]+"></td></tr>"+
-  "<tr><td style=\"font:1pt\">&nbsp;<td>"+
-  "<td valign=top id=tdScroll class=\"clScroll\" onclick=\"parent.fnFastScrollTabs(0);\" onmouseover=\"parent.fnMouseOverScroll(0);\" onmouseout=\"parent.fnMouseOutScroll(0);\"><a>&#171;</a></td>"+
-  "<td valign=top id=tdScroll class=\"clScroll2\" onclick=\"parent.fnScrollTabs(0);\" ondblclick=\"parent.fnScrollTabs(0);\" onmouseover=\"parent.fnMouseOverScroll(1);\" onmouseout=\"parent.fnMouseOutScroll(1);\"><a>&lt</a></td>"+
-  "<td valign=top id=tdScroll class=\"clScroll2\" onclick=\"parent.fnScrollTabs(1);\" ondblclick=\"parent.fnScrollTabs(1);\" onmouseover=\"parent.fnMouseOverScroll(2);\" onmouseout=\"parent.fnMouseOutScroll(2);\"><a>&gt</a></td>"+
-  "<td valign=top id=tdScroll class=\"clScroll\" onclick=\"parent.fnFastScrollTabs(1);\" onmouseover=\"parent.fnMouseOverScroll(3);\" onmouseout=\"parent.fnMouseOutScroll(3);\"><a>&#187;</a></td>"+
-  "<td style=\"font:1pt\">&nbsp;<td></tr></table></body></html>";
-
- with (frames['frScroll'].document) {
-  open("text/html","replace");
-  write(szHTML);
-  close();
- }
-
- szHTML =
-  "<html><head>"+
-  "<style>A:link,A:visited,A:active {text-decoration:none;"+"color:"+c_rgszClr[3]+";}"+
-  ".clTab {cursor:hand;background:"+c_rgszClr[1]+";font:9pt Arial;padding-left:3px;padding-right:3px;text-align:center;}"+
-  ".clBorder {background:"+c_rgszClr[2]+";font:1pt;}"+
-  "</style></head><body onload=\"parent.fnInit();\" onselectstart=\"event.returnValue=false;\" ondragstart=\"event.returnValue=false;\" bgcolor="+c_rgszClr[4]+
-  " topmargin=0 leftmargin=0><table id=tbTabs cellpadding=0 cellspacing=0>";
-
- var iCellCount=(c_lTabs+1)*2;
-
- var i;
- for (i=0;i<iCellCount;i+=2)
-  szHTML+="<col width=1><col>";
-
- var iRow;
- for (iRow=0;iRow<6;iRow++) {
-
-  szHTML+="<tr>";
-
-  if (iRow==5)
-   szHTML+="<td colspan="+iCellCount+"></td>";
-  else {
-   if (iRow==0) {
-    for(i=0;i<iCellCount;i++)
-     szHTML+="<td height=1 class=\"clBorder\"></td>";
-   } else if (iRow==1) {
-    for(i=0;i<c_lTabs;i++) {
-     szHTML+="<td height=1 nowrap class=\"clBorder\">&nbsp;</td>";
-     szHTML+=
-      "<td id=tdTab height=1 nowrap class=\"clTab\" onmouseover=\"parent.fnMouseOverTab("+i+");\" onmouseout=\"parent.fnMouseOutTab("+i+");\">"+
-      "<a href=\""+document.all.item("shLink")[i].href+"\" target=\"frSheet\" id=aTab>&nbsp;"+c_rgszSh[i]+"&nbsp;</a></td>";
-    }
-    szHTML+="<td id=tdTab height=1 nowrap class=\"clBorder\"><a id=aTab>&nbsp;</a></td><td width=100%></td>";
-   } else if (iRow==2) {
-    for (i=0;i<c_lTabs;i++)
-     szHTML+="<td height=1></td><td height=1 class=\"clBorder\"></td>";
-    szHTML+="<td height=1></td><td height=1></td>";
-   } else if (iRow==3) {
-    for (i=0;i<iCellCount;i++)
-     szHTML+="<td height=1></td>";
-   } else if (iRow==4) {
-    for (i=0;i<c_lTabs;i++)
-     szHTML+="<td height=1 width=1></td><td height=1></td>";
-    szHTML+="<td height=1 width=1></td><td></td>";
-   }
-  }
-  szHTML+="</tr>";
- }
-
- szHTML+="</table></body></html>";
- with (frames['frTabs'].document) {
-  open("text/html","replace");
-  charset=document.charset;
-  write(szHTML);
-  close();
- }
-}
-
-function fnInit()
-{
- g_rglTabX[0]=0;
- var i;
- for (i=1;i<=c_lTabs;i++)
-  with (frames['frTabs'].document.all.tbTabs.rows[1].cells[fnTabToCol(i-1)])
-   g_rglTabX[i]=offsetLeft+offsetWidth-6;
-}
-
-function fnTabToCol(iTab)
-{
- return 2*iTab+1;
-}
-
-function fnNextTab(fDir)
-{
- var iNextTab=-1;
- var i;
-
- with (frames['frTabs'].document.body) {
-  if (fDir==0) {
-   if (scrollLeft>0) {
-    for (i=0;i<c_lTabs&&g_rglTabX[i]<scrollLeft;i++);
-    if (i<c_lTabs)
-     iNextTab=i-1;
-   }
-  } else {
-   if (g_rglTabX[c_lTabs]+6>offsetWidth+scrollLeft) {
-    for (i=0;i<c_lTabs&&g_rglTabX[i]<=scrollLeft;i++);
-    if (i<c_lTabs)
-     iNextTab=i;
-   }
-  }
- }
- return iNextTab;
-}
-
-function fnScrollTabs(fDir)
-{
- var iNextTab=fnNextTab(fDir);
-
- if (iNextTab>=0) {
-  frames['frTabs'].scroll(g_rglTabX[iNextTab],0);
-  return true;
- } else
-  return false;
-}
-
-function fnFastScrollTabs(fDir)
-{
- if (c_lTabs>16)
-  frames['frTabs'].scroll(g_rglTabX[fDir?c_lTabs-1:0],0);
- else
-  if (fnScrollTabs(fDir)>0) window.setTimeout("fnFastScrollTabs("+fDir+");",5);
-}
-
-function fnSetTabProps(iTab,fActive)
-{
- var iCol=fnTabToCol(iTab);
- var i;
-
- if (iTab>=0) {
-  with (frames['frTabs'].document.all) {
-   with (tbTabs) {
-    for (i=0;i<=4;i++) {
-     with (rows[i]) {
-      if (i==0)
-       cells[iCol].style.background=c_rgszClr[fActive?0:2];
-      else if (i>0 && i<4) {
-       if (fActive) {
-        cells[iCol-1].style.background=c_rgszClr[2];
-        cells[iCol].style.background=c_rgszClr[0];
-        cells[iCol+1].style.background=c_rgszClr[2];
-       } else {
-        if (i==1) {
-         cells[iCol-1].style.background=c_rgszClr[2];
-         cells[iCol].style.background=c_rgszClr[1];
-         cells[iCol+1].style.background=c_rgszClr[2];
-        } else {
-         cells[iCol-1].style.background=c_rgszClr[4];
-         cells[iCol].style.background=c_rgszClr[(i==2)?2:4];
-         cells[iCol+1].style.background=c_rgszClr[4];
-        }
-       }
-      } else
-       cells[iCol].style.background=c_rgszClr[fActive?2:4];
-     }
-    }
-   }
-   with (aTab[iTab].style) {
-    cursor=(fActive?"default":"hand");
-    color=c_rgszClr[3];
-   }
-  }
- }
-}
-
-function fnMouseOverScroll(iCtl)
-{
- frames['frScroll'].document.all.tdScroll[iCtl].style.color=c_rgszClr[7];
-}
-
-function fnMouseOutScroll(iCtl)
-{
- frames['frScroll'].document.all.tdScroll[iCtl].style.color=c_rgszClr[6];
-}
-
-function fnMouseOverTab(iTab)
-{
- if (iTab!=g_iShCur) {
-  var iCol=fnTabToCol(iTab);
-  with (frames['frTabs'].document.all) {
-   tdTab[iTab].style.background=c_rgszClr[5];
-  }
- }
-}
-
-function fnMouseOutTab(iTab)
-{
- if (iTab>=0) {
-  var elFrom=frames['frTabs'].event.srcElement;
-  var elTo=frames['frTabs'].event.toElement;
-
-  if ((!elTo) ||
-   (elFrom.tagName==elTo.tagName) ||
-   (elTo.tagName=="A" && elTo.parentElement!=elFrom) ||
-   (elFrom.tagName=="A" && elFrom.parentElement!=elTo)) {
-
-   if (iTab!=g_iShCur) {
-    with (frames['frTabs'].document.all) {
-     tdTab[iTab].style.background=c_rgszClr[1];
-    }
-   }
-  }
- }
-}
-
-function fnSetActiveSheet(iSh)
-{
- if (iSh!=g_iShCur) {
-  fnSetTabProps(g_iShCur,false);
-  fnSetTabProps(iSh,true);
-  g_iShCur=iSh;
- }
-}
-
- window.g_iIEVer=fnGetIEVer();
- if (window.g_iIEVer>=4)
-  fnBuildFrameset();
-//-->
-</script>
-<![endif]><!--[if gte mso 9]><xml>
- <x:ExcelWorkbook>
-  <x:ExcelWorksheets>
-   <x:ExcelWorksheet>
-    <x:Name>Feuil1</x:Name>
-    <x:WorksheetSource HRef="index_fichiers/sheet001.htm"/>
-   </x:ExcelWorksheet>
-  </x:ExcelWorksheets>
-  <x:Stylesheet HRef="index_fichiers/stylesheet.css"/>
-  <x:WindowHeight>15840</x:WindowHeight>
-  <x:WindowWidth>29040</x:WindowWidth>
-  <x:WindowTopX>32767</x:WindowTopX>
-  <x:WindowTopY>32767</x:WindowTopY>
-  <x:ProtectStructure>False</x:ProtectStructure>
-  <x:ProtectWindows>False</x:ProtectWindows>
- </x:ExcelWorkbook>
-</xml><![endif]-->
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+x\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<style id="index_16616_Styles"><!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:" ";}
+.font516616
+	{color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;}
+.xl6316616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#C6E0B4;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6416616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#BDD7EE;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6516616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl6616616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl6716616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl6816616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:none;
+	background:#C6E0B4;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6916616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:.5pt solid #BFBFBF;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:#375623;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl7016616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:#375623;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl7116616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:none;
+	background:#BDD7EE;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl7216616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:#1F4E78;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl7316616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:#1F4E78;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7416616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:#1F4E78;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl7516616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl7616616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl7716616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl7816616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl7916616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:.5pt solid #BFBFBF;
+	border-right:none;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl8016616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:none;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl8116616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:none;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8216616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	background:white;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl8316616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8416616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8516616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8616616
+	{padding:0px;
+	mso-ignore:padding;
+	color:white;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8716616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8816616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl8916616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl9016616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:middle;
+	border-top:.5pt solid #BFBFBF;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl9116616
+	{padding:0px;
+	mso-ignore:padding;
+	color:#BDD7EE;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:none;
+	background:#BDD7EE;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl9216616
+	{padding:0px;
+	mso-ignore:padding;
+	color:#C6E0B4;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:none;
+	background:#C6E0B4;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl9316616
+	{padding:0px;
+	mso-ignore:padding;
+	color:#C6E0B4;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	background:#C6E0B4;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl9416616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:.5pt solid #BFBFBF;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:none;
+	background:#1F4E78;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl9516616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl9616616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl9716616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:none;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:none;
+	background:#C6E0B4;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl9816616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl9916616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl10016616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl10116616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl10216616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	border:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl10316616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	border:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl10416616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:none;
+	background:#C6E0B4;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl10516616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border:.5pt solid #BFBFBF;
+	background:#C6E0B4;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl10616616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:top;
+	border:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl10716616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:none;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl10816616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:none;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl10916616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:bottom;
+	border-top:.5pt solid #BFBFBF;
+	border-right:none;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl11016616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:middle;
+	border-top:.5pt solid #BFBFBF;
+	border-right:none;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl11116616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl11216616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:none;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl11316616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:bottom;
+	border-top:.5pt solid #BFBFBF;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl11416616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl11516616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:#C6E0B4;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl11616616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	background:#C6E0B4;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl11716616
+	{padding:0px;
+	mso-ignore:padding;
+	color:#BDD7EE;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:#BDD7EE;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl11816616
+	{padding:0px;
+	mso-ignore:padding;
+	color:#BDD7EE;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	background:#BDD7EE;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl11916616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:.5pt solid #BFBFBF;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl12016616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl12116616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:#FFE699;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl12216616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:middle;
+	border:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl12316616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl12416616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl12516616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	background:white;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl12616616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl12716616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl12816616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:#C6E0B4;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl12916616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	background:#C6E0B4;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl13016616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:#1F4E78;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl13116616
+	{padding:0px;
+	mso-ignore:padding;
+	color:white;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:#C65911;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl13216616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:.5pt solid #BFBFBF;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:#BDD7EE;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl13316616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:top;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	background:#BDD7EE;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl13416616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:middle;
+	border-top:.5pt solid #BFBFBF;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl13516616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl13616616
+	{padding:0px;
+	mso-ignore:padding;
+	color:white;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:#548235;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl13716616
+	{padding:0px;
+	mso-ignore:padding;
+	color:white;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:#00B0F0;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl13816616
+	{padding:0px;
+	mso-ignore:padding;
+	color:white;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:#C00000;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl13916616
+	{padding:0px;
+	mso-ignore:padding;
+	color:white;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:gray;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl14016616
+	{padding:0px;
+	mso-ignore:padding;
+	color:white;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:#2F75B5;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl14116616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:#F2F2F2;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl14216616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:none;
+	background:#F2F2F2;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl14316616
+	{padding:0px;
+	mso-ignore:padding;
+	color:white;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	background:#BFBFBF;
+	mso-pattern:black none;
+	white-space:normal;}
+.xl14416616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:middle;
+	border-top:.5pt solid #BFBFBF;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:none;
+	border-left:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl14516616
+	{padding:0px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:italic;
+	text-decoration:none;
+	font-family:"Calibri Light", sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid #BFBFBF;
+	border-bottom:.5pt solid #BFBFBF;
+	border-left:.5pt solid #BFBFBF;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+--></style>
+<title>Outlander - TIMELINE FR</title>
 </head>
 
-<frameset rows="*,39" border=0 width=0 frameborder=no framespacing=0>
- <frame src="index_fichiers/sheet001.htm" name="frSheet">
- <frame src="index_fichiers/tabstrip.htm" name="frTabs" marginwidth=0 marginheight=0>
- <noframes>
-  <body>
-   <p>Cette page utilise des cadres, mais votre navigateur ne les prend pas en charge.</p>
-  </body>
- </noframes>
-</frameset>
+<body>
+<!--[if !excel]>&nbsp;&nbsp;<![endif]-->
+<!--Les informations suivantes ont été générées par l’Assistant Publier en tant
+que page web de Microsoft Excel.-->
+<!--SI vous republiez le même élément à partir d'Excel, toutes les informations
+entre les balises DIV seront remplacées.-->
+<!----------------------------->
+<!--DÉBUT DE LA SORTIE À PARTIR DE L'ASSISTANT PUBLIER EN TANT QUE PAGE WEB
+D'EXCEL -->
+<!----------------------------->
+
+<div id="index_16616" align=center x:publishsource="Excel">
+
+<h1 style='color:black;font-family:Calibri;font-size:14.0pt;font-weight:800;
+font-style:normal'>Outlander - TIMELINE FR</h1>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1684 style='border-collapse:
+ collapse;table-layout:fixed;width:1263pt'>
+ <col class=xl11116616 width=235 style='mso-width-source:userset;mso-width-alt:
+ 8594;width:176pt'>
+ <col class=xl7016616 width=7 style='mso-width-source:userset;mso-width-alt:
+ 256;width:5pt'>
+ <col class=xl6316616 width=80 style='width:60pt'>
+ <col class=xl8216616 width=455 style='mso-width-source:userset;mso-width-alt:
+ 16640;width:341pt'>
+ <col class=xl7816616 width=70 style='mso-width-source:userset;mso-width-alt:
+ 2560;width:53pt'>
+ <col class=xl7216616 width=7 style='mso-width-source:userset;mso-width-alt:
+ 256;width:5pt'>
+ <col class=xl6416616 width=80 style='width:60pt'>
+ <col class=xl8516616 width=425 style='mso-width-source:userset;mso-width-alt:
+ 15542;width:319pt'>
+ <col class=xl6516616 width=245 style='mso-width-source:userset;mso-width-alt:
+ 8960;width:184pt'>
+ <col width=80 style='width:60pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;width:176pt'>&nbsp;</td>
+  <td class=xl6916616 width=7 style='width:5pt'>&nbsp;</td>
+  <td class=xl6816616 width=80 style='width:60pt'>1692</td>
+  <td class=xl7916616 width=455 style='border-left:none;width:341pt'>Naissance
+  de Brian Robert David Fraser</td>
+  <td class=xl7616616 width=70 style='width:53pt'>&nbsp;</td>
+  <td class=xl9416616 width=7 style='width:5pt'>&nbsp;</td>
+  <td class=xl7116616 width=80 style='width:60pt'>1894</td>
+  <td class=xl8316616 width=425 style='border-left:none;width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-left:none;width:184pt'>&nbsp;</td>
+  <td class=xl6553516616 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1693</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1895</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1694</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1896</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1695</td>
+  <td class=xl7916616 style='border-top:none;border-left:none'>Naissance
+  de<span style='mso-spacerun:yes'>  </span>Ellen Caitriona Sileas MacKenzie
+  Fraser</td>
+  <td class=xl7616616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1897</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1696</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1898</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1697</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1899</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1698</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1900</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1699</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1901</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1700</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1902</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1701</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1903</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1702</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1904</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1703</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1905</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1704</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1906</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>Naissance de Frank Randall</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1705</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1907</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1706</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1908</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1707</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1909</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1708</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1910</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1709</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1911</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1710</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1912</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1711</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1913</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1712</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1914</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1713</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>Collum MacKenzie
+  épouse Letitia</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1915</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1714</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1916</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1715</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>Collum devient
+  le Laird de Leoch</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1917</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl10716616 width=235 style='height:45.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1716</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Ellen MacKenzie épouse Brian Fraser<br>
+    Naissance de William Simon Murtagh MacKenzie Fraser</td>
+  <td class=xl7716616 width=70 style='width:53pt'>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1918</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>20 octobre: &#8203;&#8203;Naissance de Claire Elizabeth
+  Beauchamp.</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>11 novembre: la Première Guerre mondiale se termine avec le
+  cessez-le-feu de Compiègne</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1717</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1919</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1718</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1920</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl10716616 width=235 style='height:30.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1719</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Naissance de Janet &quot;Jenny&quot; Arabella Fraser
+  Murray<br>
+    Dougal MacKenzie épouse Maura</td>
+  <td class=xl7716616 width=70 style='width:53pt'>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1921</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1720</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1922</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl10716616 width=235 style='height:45.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1721</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>1er mai:
+  Naissance de James Alexander Malcolm MacKenzie Fraser</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1923</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>Les parents de Claire meurent dans un accident de voiture, elle
+  est adoptée par le frère de son père, Quentin Lambert Beauchamp (&quot;Oncle
+  Lamb&quot;)</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1722</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1924</td>
+  <td rowspan=13 height=301 width=425 style='height:225.75pt;width:319pt'
+  align=left valign=top><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+   coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+   filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="ZoneTexte_x0020_2" o:spid="_x0000_s1041" type="#_x0000_t75"
+   style='position:absolute;margin-left:59.25pt;margin-top:82.5pt;width:179.25pt;
+   height:60pt;z-index:2;visibility:visible;mso-wrap-style:square;
+   v-text-anchor:top' o:gfxdata="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
+" o:insetmode="auto">
+   <v:imagedata src="index_fichiers/index_16616_image001.png" o:title=""/>
+   <o:lock v:ext="edit" aspectratio="f"/>
+   <x:ClientData ObjectType="Pict">
+    <x:SizeWithCells/>
+    <x:CF>Bitmap</x:CF>
+    <x:AutoPict/>
+   </x:ClientData>
+  </v:shape><v:shape id="ZoneTexte_x0020_4" o:spid="_x0000_s1043" type="#_x0000_t75"
+   style='position:absolute;margin-left:51pt;margin-top:1.5pt;width:23.25pt;
+   height:225.75pt;z-index:4;visibility:visible;mso-wrap-style:square;
+   v-text-anchor:top' o:gfxdata="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
+" o:insetmode="auto">
+   <v:imagedata src="index_fichiers/index_16616_image002.png" o:title=""/>
+   <o:lock v:ext="edit" aspectratio="f"/>
+   <x:ClientData ObjectType="Pict">
+    <x:SizeWithCells/>
+    <x:CF>Bitmap</x:CF>
+    <x:AutoPict/>
+   </x:ClientData>
+  </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+  position:absolute;z-index:2;margin-left:68px;margin-top:2px;width:250px;
+  height:301px'><img width=250 height=301
+  src="index_fichiers/index_16616_image003.png" v:shapes="ZoneTexte_x0020_2 ZoneTexte_x0020_4"></span><![endif]><span
+  style='mso-ignore:vglayout2'>
+  <table cellpadding=0 cellspacing=0>
+   <tr>
+    <td rowspan=13 height=301 class=xl12216616 width=425 style='height:225.75pt;
+    border-top:none;width:319pt'>&nbsp;</td>
+   </tr>
+  </table>
+  </span></td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1723</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1925</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1724</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1926</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9216616 style='border-top:none'>1725</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1927</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1726</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>William (11)
+  donne un serpent sculpté à Jamie pour son 5ème anniversaire</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1928</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=21 style='height:15.75pt'>
+  <td height=21 class=xl10816616 width=235 style='height:15.75pt;border-top:
+  none;width:176pt'>George II devient roi d'Angleterre</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1727</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>Willie, le frère
+  de Jamie, meurt de la variole</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1929</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1728</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1930</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl10716616 width=235 style='height:45.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1729</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Naissance de Lord John Grey<br>
+    Ellen Fraser meurt en donnant naissance à son quatrième enfant, Robert
+  Brian Gordon MacKenzie Fraser, mort lui aussi</td>
+  <td class=xl7716616 width=70 style='width:53pt'>&nbsp;</td>
+  <td class=xl7316616 width=7 style='width:5pt'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1931</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1730</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1932</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1731</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1933</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1732</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1934</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1733</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>Geillis arrive
+  par les pierres de Craigh Na Dun, année approximative.</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1935</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1734</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1936</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl10716616 width=235 style='height:45.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1735</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Jamie (14) passe quelques mois (ou 2 ans?) sous la tutelle de
+  Dougal MacKenzie à Leoch<br>
+    Année supposée de naissance de Fergus</td>
+  <td class=xl7716616 width=70 style='width:53pt'>&nbsp;</td>
+  <td class=xl7316616 width=7 style='width:5pt'>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1937</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>Claire épouse Frank Randall.</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1736</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1938</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl10716616 width=235 style='height:45.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1737</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>Jamie (16) passe
+  un an sous la tutelle de Colum, à Leoch</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1939</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>Frank travaille pour les services secrets britanniques.</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>1er septembre: la Seconde Guerre mondiale commence avec
+  l'attaque allemande contre la Pologne</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1738</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>Jamie (17) part
+  une année à Paris pour étudier à l’université</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1940</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=230 style='mso-height-source:userset;height:172.5pt'>
+  <td height=230 class=xl10716616 width=235 style='height:172.5pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1739</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Black Jack devient commandant de garnison à Fort William,
+  succédant au capitaine Buncombe<br>
+    Geillis Isbister abandonne sa cabane incendiée avec le cadavre d'un homme
+  pendu à l'intérieur, et part pour Cranesmuir.<br>
+    Novembre: À la recherche de «Jeremiah» MacKenzie, Roger et William
+  Buccleigh MacKenzie se retrouvent à l'époque où se trouve le père de Roger,
+  Jerry MacKenzie. Ils rencontrent aussi le père de Jamie, Brian Fraser, Dougal
+  MacKenzie et Jack Randall.<br>
+    Brianna fini par le rejoindre avec ses enfants au solstice d'hiver (fin
+  décembre).</td>
+  <td class=xl7716616 width=70 style='width:53pt'>&nbsp;</td>
+  <td class=xl7316616 width=7 style='width:5pt'>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1941</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>Roger MacKenzie est né. Son père Jeremiah est porté disparu en
+  mission.<br>
+    Claire devient infirmière de combat.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl10716616 width=235 style='height:105.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1740</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Mars: Jamie rencontre le capitaine Jack Randall pour la première
+  fois et est conduit à Fort William ou il est flagelé. <br>
+    Brian Fraser est victime d'un AVC à Fort William et meurt peu de temps
+  après. <br>
+    Jamie s'enfuit en France et y passe quelques temps en tant que
+  mercenaire.<br>
+    11 novembre: Jenny Fraser épouse Ian Murray (jour de la St Martin)</td>
+  <td class=xl7716616 width=70 style='width:53pt'>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1942</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl10716616 width=235 style='height:30.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1741</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Août: naissance de James Fraser Murray (Petit Jamie)</td>
+  <td class=xl7716616 width=70 style='width:53pt'>&nbsp;</td>
+  <td class=xl7316616 width=7 style='width:5pt'>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1943</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>La mère de Roger meurt pendant la guerre; il est adopté par le
+  révérend Wakefield à Inverness.</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>3 mars: Tragédie de la station de métro londonienne Bethnal
+  Green<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1742</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>Juin: Jamie (21)
+  rentre en Écosse</td>
+  <td class=xl7516616>&nbsp;</td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1944</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=80 style='mso-height-source:userset;height:60.0pt'>
+  <td rowspan=2 height=324 class=xl12616616 width=235 style='border-bottom:
+  .5pt solid #BFBFBF;height:243.0pt;border-top:none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616 style='border-left:none'>&nbsp;</td>
+  <td rowspan=2 class=xl12816616 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none'>1743</td>
+  <td class=xl8716616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Janvier: Jamie (21) reçoit un coup de hache et va à l'Abbaye St.
+  Anne de Beaupré<br>
+    Printemps: Le père de Ian décède<br>
+    Jamie rentre en Écosse<br>
+    </td>
+  <td class=xl8616616 width=70 style='border-left:none;width:53pt'>&nbsp;</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td rowspan=2 class=xl13216616 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none'>1945</td>
+  <td class=xl8416616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td rowspan=2 class=xl13416616 width=245 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none;width:184pt'>8 mai: La capitulation allemande met fin à la
+  Seconde Guerre mondiale en Europe.<br>
+    2 septembre: Les Japonais capitulent après les attentats à la bombe
+  nucléaire sur Hiroshima et Nagasaki. La Seconde Guerre mondiale est terminée.</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=244 style='mso-height-source:userset;height:183.0pt'>
+  <td height=244 class=xl7016616 style='height:183.0pt;border-left:none'>&nbsp;</td>
+  <td class=xl8816616 width=455 style='border-left:none;width:341pt'>2 mai:
+  Claire se réveille dans le cercle de pierres de Craigh na Dun. Elle rencontre
+  Black Jack, puis Murtagh, qui la conduit à Dougal. Elle est emmenée à Castle
+  Leoch ou elle passe le mois. Elle rencontre Colum, Geillis, et assiste au
+  Gathering.<br>
+    Juin: Claire suit Jamie et Dougal pour leur collecte des impôts<br>
+    Mi-juin: Jamie (22) et Claire (26) se marient. Ils rencontrent Hugh Monroe.
+  Claire se fait emmener de force auprès de Black Jack et est secourue par
+  Jamie.<br>
+    Octobre: Claire est accusée de sorcellerie; Jamie la sauve et la ramène
+  chez elle à Lallybroch. <br>
+    Plus tard cet hiver, il est trahi et livré à Jack Randall. Claire le sauve
+  de la prison de Wentworth.</td>
+  <td rowspan=2 class=xl14016616 width=70 style='width:53pt'>Le Chardon et le
+  Tartan<br>
+    <br>
+    The Exile</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl8916616 width=425 style='border-left:none;width:319pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=47 style='mso-height-source:userset;height:35.25pt'>
+  <td rowspan=2 height=226 class=xl12616616 width=235 style='border-bottom:
+  .5pt solid #BFBFBF;height:169.5pt;border-top:none;width:176pt'>&nbsp;</td>
+  <td rowspan=2 class=xl7016616>&nbsp;</td>
+  <td rowspan=2 class=xl12816616 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none'>1744</td>
+  <td rowspan=2 class=xl8716616 width=455 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none;width:341pt'>Janvier: Naissance de William Buccleigh
+  MacKenzie.<br>
+    Janvier: Jamie est assez remis pour que lui et Claire s'enfuient en France;
+  <br>
+    Fin janvier, Claire annonce à Jamie qu'elle est enceinte (début de
+  grossesse ~ 14/01/44).<br>
+    Février: Jamie et Claire arrivent au Havre et rencontrent l'oncle Jared.
+  Claire diagnostique la vérole qui conduit à l'incendie du bateau de St
+  Germain.<br>
+    12 mai: Naissance et mort de Faith<br>
+    Automne: Claire et Jamie rentrent en Écosse<br>
+    Année ou le conte de Saint Germain rencontre et fréquente une certaine
+  Mélisande Robicheaux (aka Geillis)<span style='mso-spacerun:yes'> </span></td>
+  <td rowspan=2 class=xl13016616 width=7 style='width:5pt'>&nbsp;</td>
+  <td rowspan=2 class=xl11716616 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none'>1946</td>
+  <td rowspan=2 class=xl8416616 width=425 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none;width:319pt'>&nbsp;</td>
+  <td rowspan=2 class=xl11916616 width=245 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none;width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=179 style='mso-height-source:userset;height:134.25pt'>
+  <td rowspan=3 height=631 class=xl13116616 width=70 style='height:473.25pt;
+  width:53pt'>Le Talisman</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=272 style='mso-height-source:userset;height:204.0pt'>
+  <td height=272 class=xl10716616 width=235 style='height:204.0pt;border-top:
+  none;width:176pt'>Août: Charles Stuart pose les pieds sur le sol écossais,
+  d'abord sur Eriskay puis à Glenfinnan. 		<br>
+    17 septembre: Les Jacobites prennent Edimbourg<br>
+    21 septembre: victoire jacobite sur les troupes de la Couronne sous le
+  commandement du général John Cope à Prestonpans.<br>
+    Décembre: Les Jacobites prennent Derby, à une centaine de kilomètres à
+  peine des portes de Londres, puis ils se retirent vers le nord</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1745</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Fin de l’été: Jamie reçoit une lettre de Charles Stuart, qui
+  revendique officiellement le trône - et qui a signé le nom de Jamie comme
+  l'un de ses partisans. Maintenant Jamie n'a d'autre choix que de se battre
+  pour Charles Stuart et d'essayer de l'aider à gagner.</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1947</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=180 style='height:135.0pt'>
+  <td height=180 class=xl10716616 width=235 style='height:135.0pt;border-top:
+  none;width:176pt'>17 janvier: Dernière victoire jacobite à Falkirk<br>
+    16 avril: Les troupes de la Couronne sous Guillaume de Cumberland
+  remportent la dernière bataille du Rising sur la lande de Culloden près
+  d'Inverness. Après le bain de sang de Culloden, ils procèdent à un nettoyage
+  ethnique des Highlands</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1746</td>
+  <td width=455 style='width:341pt' align=left valign=top><!--[if gte vml 1]><v:shape
+   id="ZoneTexte_x0020_1" o:spid="_x0000_s1040" type="#_x0000_t75" style='position:absolute;
+   margin-left:15pt;margin-top:114.75pt;width:248.25pt;height:21pt;z-index:1;
+   visibility:visible;mso-wrap-style:square;v-text-anchor:top' o:gfxdata="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
+" o:insetmode="auto">
+   <v:imagedata src="index_fichiers/index_16616_image004.png" o:title=""/>
+   <o:lock v:ext="edit" aspectratio="f"/>
+   <x:ClientData ObjectType="Pict">
+    <x:SizeWithCells/>
+    <x:CF>Bitmap</x:CF>
+    <x:AutoPict/>
+   </x:ClientData>
+  </v:shape><v:shape id="ZoneTexte_x0020_3" o:spid="_x0000_s1042" type="#_x0000_t75"
+   style='position:absolute;margin-left:207pt;margin-top:41.25pt;width:33pt;
+   height:183.75pt;z-index:3;visibility:visible;mso-wrap-style:square;
+   v-text-anchor:top' o:gfxdata="UEsDBBQABgAIAAAAIQDw94q7/QAAAOIBAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbJSRzUrEMBDH
+74LvEOYqbaoHEWm6B6tHFV0fYEimbdg2CZlYd9/edD8u4goeZ+b/8SOpV9tpFDNFtt4puC4rEOS0
+N9b1Cj7WT8UdCE7oDI7ekYIdMayay4t6vQvEIrsdKxhSCvdSsh5oQi59IJcvnY8TpjzGXgbUG+xJ
+3lTVrdTeJXKpSEsGNHVLHX6OSTxu8/pAEmlkEA8H4dKlAEMYrcaUSeXszI+W4thQZudew4MNfJUx
+QP7asFzOFxx9L/lpojUkXjGmZ5wyhjSRJQ8YKGvKv1MWzIkL33VWU9lGfl98J6hz4cZ/uUjzf7Pb
+bHuj+ZQu9z/UfAMAAP//AwBQSwMEFAAGAAgAAAAhADHdX2HSAAAAjwEAAAsAAABfcmVscy8ucmVs
+c6SQwWrDMAyG74O9g9G9cdpDGaNOb4VeSwe7CltJTGPLWCZt376mMFhGbzvqF/o+8e/2tzCpmbJ4
+jgbWTQuKomXn42Dg63xYfYCSgtHhxJEM3Elg372/7U40YalHMvokqlKiGBhLSZ9aix0poDScKNZN
+zzlgqWMedEJ7wYH0pm23Ov9mQLdgqqMzkI9uA+p8T9X8hx28zSzcl8Zy0Nz33r6iasfXeKK5UjAP
+VAy4LM8w09zU50C/9q7/6ZURE31X/kL8TKv1x6wXNXYPAAAA//8DAFBLAwQUAAYACAAAACEA4RHl
+4Y4CAAD3DAAAEAAAAGRycy9zaGFwZXhtbC54bWzsVztv2zAQ3gv0PxDcE8ly5YdgKUgduEvRGE66
+dGMk0hZKkSrJ2HLQH987Uo6LDC0QFxkKLxR1JO+7+3gPaXbVNZJsubG1VjkdXMaUcFXqqlbrnH69
+X1xMKLGOqYpJrXhO99zSq+L9u1lXmYypcqMNARXKZiDI6ca5NosiW254w+ylbrmCVaFNwxy8mnVU
+GbYD5Y2MkjgeRbY1nFV2w7m7CSu08LoBbc6lvPYQQSSMbsKs1LIYziK0Aaf+AExuhSiSUTKZxvHz
+Isr8utG7Ih0FOc4PQtyQJsPJ+Ljmz3jtR0jeOVJ2Of0wmA5iYKnc5zQZDgfJeEqjoMy2pGGl0Tml
+xMF+WavvMA+LanvXLk2Yl1+2S0PqCrRRolgDvH4Df+/hDCfDgzrYhUeI6z5qAB6g3Bv1uyrrlbKs
+E6bpL4K94hoaViswlGVaCAJg6WiaTlNw03uZxuNx7PFZ9hceomAKqmqNdZ+4PtksgopyanjpvIls
++9k65OIIgXBKL2opT+XgwHHgFQPMur3kCCDVigM5PthfzTHcOtAbe0dsadYPc2kIJA5QDQkH4wOO
+wTsPiMgCHHtj7B4S0bkQQP0b4z+Dev+1+nf4Ta206fmHKsXxArZM5tR1IcWA74DXp1sfABgLmIrV
+Hk16gCfk5qnRAJXX3cIgpN7ltJR1SwmU1KeXsp1hbU7tj0dmOCXGybkGiyFcQgkG44NH7fWjgzzo
+0yMYieZK6+4wjk81GAITsu5ULajE+AEolAxbjTAXixW0micodFhfPZArfmKWO5/rcAAz/mzAmYEz
+A2cGzgz8PwxwVS2ZYas/dYNQ+/3376EL+xcLHcH/B8iaK3fDHDt8wr34g/C7Q7ssfgEAAP//AwBQ
+SwMEFAAGAAgAAAAhAMLPIBYjAQAAmgEAAA8AAABkcnMvZG93bnJldi54bWxskE9PAjEQxe8mfodm
+TLwYaV1gXVe6BE1EL4qA3uu2+0e3LWnrsvDpHUTCxeO8md/rex2NO92QVjlfW8PhqseAKJNbWZuS
+w9vy4TIB4oMwUjTWKA4b5WGcnZ6MRCrt2sxVuwglQRPjU8GhCmGVUurzSmnhe3alDO4K67QIOLqS
+SifWaK4bGjEWUy1qgy9UYqXuK5V/Lb41h9n0Pd8Gac3F3ezTimn7utw8l5yfn3WTWyBBdeF4/Ec/
+SQ4DIMXj5sPVci58UI4D1sFyWAwyTNw1E5NX1pFirny9xTp7vXBWE2fXHIYxkNw2HPqwE16KwquA
+ctRProe/q4MUxVFywxjQnXGwezxG7B8cU6B6IPtskLA9SY+ZshEOxy/NfgAAAP//AwBQSwECLQAU
+AAYACAAAACEA8PeKu/0AAADiAQAAEwAAAAAAAAAAAAAAAAAAAAAAW0NvbnRlbnRfVHlwZXNdLnht
+bFBLAQItABQABgAIAAAAIQAx3V9h0gAAAI8BAAALAAAAAAAAAAAAAAAAAC4BAABfcmVscy8ucmVs
+c1BLAQItABQABgAIAAAAIQDhEeXhjgIAAPcMAAAQAAAAAAAAAAAAAAAAACkCAABkcnMvc2hhcGV4
+bWwueG1sUEsBAi0AFAAGAAgAAAAhAMLPIBYjAQAAmgEAAA8AAAAAAAAAAAAAAAAA5QQAAGRycy9k
+b3ducmV2LnhtbFBLBQYAAAAABAAEAPUAAAA1BgAAAAA=
+" o:insetmode="auto">
+   <v:imagedata src="index_fichiers/index_16616_image005.png" o:title=""/>
+   <o:lock v:ext="edit" aspectratio="f"/>
+   <x:ClientData ObjectType="Pict">
+    <x:SizeWithCells/>
+    <x:CF>Bitmap</x:CF>
+    <x:AutoPict/>
+   </x:ClientData>
+  </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+  position:absolute;z-index:1;margin-left:20px;margin-top:55px;width:331px;
+  height:245px'><img width=331 height=245
+  src="index_fichiers/index_16616_image006.png" v:shapes="ZoneTexte_x0020_1 ZoneTexte_x0020_3"></span><![endif]><span
+  style='mso-ignore:vglayout2'>
+  <table cellpadding=0 cellspacing=0>
+   <tr>
+    <td height=180 class=xl8116616 width=455 style='height:135.0pt;border-top:
+    none;border-left:none;width:341pt'><br>
+        Mars: Mary Hawkins épouse Jack Randall<br>
+        16 avril: Culloden, Claire est enceinte et repars à travers les pierres</td>
+   </tr>
+  </table>
+  </span></td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1948</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'><br>
+    <br>
+    Mi-avril: Claire réapparait à Inverness dans des circonstances
+  mystérieuses. Elle est enceinte de deux mois. 	Voyageur<br>
+    23 novembre: Naissance de Brianna Ellen Randall.</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1747</td>
+  <td rowspan=5 class=xl12316616 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none'>&nbsp;</td>
+  <td rowspan=21 class=xl13616616>Le Voyage</td>
+  <td class=xl7216616 style='border-left:none'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1949</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1748</td>
+  <td class=xl7216616 style='border-left:none'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1950</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1749</td>
+  <td class=xl7216616 style='border-left:none'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1951</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1750</td>
+  <td class=xl7216616 style='border-left:none'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1952</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1751</td>
+  <td class=xl7216616 style='border-left:none'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1953</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1752</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>15 novembre: Ian
+  Fraser Murray est né</td>
+  <td class=xl7216616 style='border-left:none'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1954</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1753</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>Jamie arrive à
+  Ardsmuir en tant que prisonnier</td>
+  <td class=xl7216616 style='border-left:none'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1955</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1754</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7216616 style='border-left:none'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1956</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1755</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>John Grey
+  devient gouverneur d'Ardsmuir</td>
+  <td class=xl7216616 style='border-left:none'>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1957</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>Claire commence sa faculté de médecine à Boston.</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl10716616 width=235 style='height:75.0pt;border-top:
+  none;width:176pt'>La guerre de sept ans commence</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1756</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Fermeture d’Ardsmuir, les prisonniers sont déportés vers
+  l’Amérique tandis que Jamie est envoyé à Helwater pour purger sa peine en
+  tant que palefrenier d’une famille anglaise noble.<br>
+    Lord John retourne à Londres, où il s'implique dans les mystérieux
+  évènements du Hellfire Club.</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1958</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl10916616 width=235 style='height:75.0pt;border-top:
+  none;width:176pt'>5 novembre: La bataille de Roßbach</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1757</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>A Londres, une inconnue vêtue d'une robe de velours vert est
+  tuée. Lord John aide à trouver le meurtrier.<br>
+    Lord John passe quelque temps comme agent de liaison militaire en
+  Allemagne. Il découvre un acte de sabotage français et aide ainsi les Prussiens
+  à gagner la bataille de Roßbach.</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1959</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl11016616 width=235 style='height:75.0pt;border-top:
+  none;width:176pt'>23 juin: La bataille de Crefeld 	</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1758</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>9 janvier: Naissance de William «Willie» Clarence Henry George
+  Ransom, le neuvième comte d'Ellesmere.<br>
+    Enquêtant sur l'explosion d'un canon lors de la bataille de Crefeld, Lord
+  John est confronté au fait que ses propres rangs ne sont pas non plus étrangers
+  au sabotage.</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1960</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl10716616 width=235 style='height:30.0pt;border-top:
+  none;width:176pt'>13 septembre: Bataille sur les plaines d'Abraham 	</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1759</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Servant sous les ordres du général Simon Fraser, Lord John
+  participe à la bataille de Québec.</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1961</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl10716616 width=235 style='height:60.0pt;border-top:
+  none;width:176pt'>25 octobre: &#8203;&#8203;le roi George II d'Angleterre
+  meurt. Son petit-fils lui succède sur le trône en tant que George III. 	</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1760</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Avec l'aide de Jamie Fraser, qui vit toujours à Helwater, Lord
+  John empêche un autre soulèvement jacobite.</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1962</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1761</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Lord John aide à résoudre une révolte d'esclaves en Jamaïque.</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1963</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1762</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7216616 style='border-left:none'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1964</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl10716616 width=235 style='height:15.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1763</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7216616 style='border-left:none'>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1965</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>Les Beatles sortent &quot;Yesterday&quot;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl10716616 width=235 style='height:30.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1764</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Jamie reçoit sa libération conditionnelle. Il quitte Helwater et
+  rentre chez lui à Lallybroch.</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1966</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>Janvier: Frank Randall meurt dans un accident de voiture.</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl10716616 width=235 style='height:30.0pt;border-top:
+  none;width:176pt'>10 juillet: William Tryon devient gouverneur de la Caroline
+  du Nord</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1765</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Janvier: Jamie épouse Laoghaire, mais peu de temps après, il
+  déménage à Édimbourg et ouvre une imprimerie.</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1967</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=324 style='mso-height-source:userset;height:243.0pt'>
+  <td height=324 class=xl10716616 width=235 style='height:243.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1766</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>1er novembre: Claire arrive dans le cercle de pierres de Craigh
+  na Dun.<br>
+    1er novembre: Richard Donner arrive dans le cercle de pierres sur
+  Ocracoke.<br>
+    Après une séparation de vingt ans, Claire et Jamie sont réunis à Édimbourg.</td>
+  <td class=xl7416616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1968</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>Avec sa fille Brianna, Claire se rend à Inverness, Avec l'aide
+  du jeune historien Roger Wakefield / MacKenzie, elle découvre que Jamie a
+  survécu à la bataille de Culloden. 	<br>
+    1er mai: Gillian Edgars / Geillis Duncan voyage dans le passé à travers les
+  pierres de Craigh na Dun pour se battre pour la cause Stuart. Elle atterrit
+  en 1733, environ dix ans plus tôt que prévu. Dans la même nuit, son
+  co-conspirateur Kenneth la suit, mais il se retrouve en 1743, quelques heures
+  avant Claire. <br>
+    1er novembre: Claire traverse la pierre fendue de Craigh na Dun pour
+  retrouver Jamie. Elle arrive en 1766.<br>
+    1er novembre: Un groupe de cinq militants dont Richard Donner (les Cinq de
+  Montauk) voyage dans le passé à travers le cercle de pierres sur Ocracoke,
+  pour empêcher le génocide des Amérindiens. Donner finit en 1766; son
+  compagnon Jojo meurt dans le passage; un troisième homme, Robert Springer
+  (Otter Tooth), voyage des décennies trop loin.</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=54 style='mso-height-source:userset;height:40.5pt'>
+  <td rowspan=2 height=110 class=xl12616616 width=235 style='border-bottom:
+  .5pt solid #BFBFBF;height:82.5pt;border-top:none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616 style='border-left:none'>&nbsp;</td>
+  <td rowspan=2 class=xl12816616 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none'>1767</td>
+  <td rowspan=2 class=xl8716616 width=455 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none;width:341pt'>John Grey devient gouverneur de la
+  Jamaïque	<br>
+    Printemps: Geillis trouve la mort dans la grotte d’Abandawe<br>
+    Avril: Claire et Jamie échouent en Géorgie, en Amérique, à la suite d'une
+  tempête.	<br>
+    Août: Jamie et Claire découvrent le futur domaine de Fraser's Ridge.</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td rowspan=2 class=xl13216616 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none'>1969</td>
+  <td rowspan=2 class=xl8416616 width=425 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none;width:319pt'>&nbsp;</td>
+  <td rowspan=2 class=xl13416616 width=245 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none;width:184pt'>20 juillet: Premier atterrissage sur la Lune . 	</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=56 style='mso-height-source:userset;height:42.0pt'>
+  <td height=56 class=xl7016616 style='height:42.0pt;border-left:none'>&nbsp;</td>
+  <td rowspan=4 class=xl13716616 width=70 style='width:53pt'>Les Tambours de
+  l'Automne</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=23 style='mso-height-source:userset;height:17.25pt'>
+  <td height=23 class=xl10716616 width=235 style='height:17.25pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1768</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7216616 style='border-left:none'>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1970</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=106 style='mso-height-source:userset;height:79.5pt'>
+  <td height=106 class=xl10716616 width=235 style='height:79.5pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1769</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Brianna passe les pierres le 1er mai <br>
+    Roger passe à son tour les pierres le jour du solstice d'été<br>
+    Début septembre : Ils se rencontrent à Wilmington, où ils sont «handfast».
+  Quelques jours plus tard, Stephen Bonnet viole Brianna.</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1971</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>1er mai: Brianna, qui a trouvé une ancienne coupure de journal
+  rapportant la mort de ses parents au 18e siècle, voyage dans le passé pour
+  avertir Claire et Jamie. Elle arrive en 1769 (à Craigh na Dun).<br>
+    Solstice d'été: Roger, qui a également trouvé la coupure, suit Brianna
+  jusqu'en 1769 (Craigh na Dun). 	</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=45 style='mso-height-source:userset;height:33.75pt'>
+  <td rowspan=2 height=170 class=xl12616616 width=235 style='border-bottom:
+  .5pt solid #BFBFBF;height:127.5pt;border-top:none;width:176pt'>&nbsp;</td>
+  <td rowspan=2 class=xl7016616>&nbsp;</td>
+  <td rowspan=2 class=xl12816616 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none'>1770</td>
+  <td class=xl8716616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Février: Petit Ian est adopté par les Kanyen'kehaka. 	<br>
+    Mai: Naissance de Jeremiah Alexander Ian Fraser MacKenzie<br>
+    </td>
+  <td rowspan=2 class=xl7316616 width=7 style='width:5pt'>&nbsp;</td>
+  <td rowspan=2 class=xl11716616 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none'>1972</td>
+  <td rowspan=2 class=xl8416616 width=425 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none;width:319pt'>&nbsp;</td>
+  <td rowspan=2 class=xl11916616 width=245 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none;width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=125 style='mso-height-source:userset;height:93.75pt'>
+  <td height=125 class=xl8816616 width=455 style='height:93.75pt;border-left:
+  none;width:341pt'>Fin octobre: &#8203;&#8203;Brianna et Roger se marient lors
+  d'un rassemblement sur le mont Helicon.<br>
+    Décembre: Jamie et Claire découvrent l'impensable dans la maison Beardsley.
+  Après avoir confié l'enfant de Fanny Beardsley et aidé Isaiah Morton à s'enfuir
+  avec Alicia Brown, Jamie et Claire rentrent à Fraser's Ridge à temps pour
+  Noël.</td>
+  <td rowspan=3 class=xl13816616 width=70 style='width:53pt'>La Croix de Feu</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl10716616 width=235 style='height:60.0pt;border-top:
+  none;width:176pt'>16 mai: Bataille d'Alamance<br>
+    12 août: Josiah Martin prend ses fonctions de gouverneur de Caroline du
+  Nord. 	</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1771</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Mars: Jocasta Cameron et Duncan Innes sont mariés.<br>
+    16 mai : Pendant la bataille d'Alamance, Roger est pendu en tant que
+  rebelle. Il s'échappe à peine vivant.</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1973</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl10716616 width=235 style='height:45.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1772</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Octobre: &#8203;&#8203;Ian revient à Fraser's Ridge.<br>
+    Jamie prend le parti des rebelles américains. <br>
+    Roger et Brianna décident de rester dans le passé.</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1974</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=40 style='mso-height-source:userset;height:30.0pt'>
+  <td height=40 class=xl10916616 width=235 style='height:30.0pt;border-top:
+  none;width:176pt'>16 décembre: Boston Tea Party 	</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1773</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Les régulateurs et les hors-la-loi perturbent la vie dans les
+  colonies.</td>
+  <td rowspan=4 class=xl14316616 width=70 style='width:53pt'>La Neige et la
+  Cendre</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1975</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl10716616 width=235 style='height:90.0pt;border-top:
+  none;width:176pt'>Les rebelles commencent à communiquer par le biais des
+  comités de correspondance.<br>
+    Le premier congrès continental se réunit à Philadelphie. 	<br>
+    </td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1774</td>
+  <td class=xl8016616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl7216616 style='border-left:none'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1976</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl10716616 width=235 style='height:105.0pt;border-top:
+  none;width:176pt'>18 avril: balade de Paul Revere <br>
+    Mai: Deuxième congrès continental 		<br>
+    Juillet: les forces rebelles sous John Ashe mettent le feu à Fort Johnston
+  . Le gouverneur Josiah Martin prend la fuite</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1775</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Mars : Lettre de Lord John à Jamie lui intimant de ne pas se
+  mettre lui-même et sa famille en danger après avoir trouvé son nom dans une
+  liste de rebelles.<br>
+    Malva Christie, l'assistante médicale de Claire, qui est tombée enceinte
+  par inceste, crée des troubles à Fraser's Ridge.<br>
+    Accusée du meurtre de Malva, Claire devient prisonnière du gouverneur
+  Josiah Martin et assiste à l'incendie de Fort Johnston.</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1977</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=60 style='mso-height-source:userset;height:45.0pt'>
+  <td rowspan=2 height=180 class=xl12616616 width=235 style='border-bottom:
+  .5pt solid #BFBFBF;height:135.0pt;border-top:none;width:176pt'>27 février:
+  Bataille du pont Moore's Creek <br>
+    <br>
+    <br>
+    4 juillet: Déclaration d'indépendance 	</td>
+  <td class=xl7016616 style='border-left:none'>&nbsp;</td>
+  <td rowspan=2 class=xl12816616 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none'>1776</td>
+  <td class=xl8716616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>21 janvier: La maison de Fraser's Ridge ne brule pas comme
+  indiqué dans la Wilmington Gazette. 	<br>
+    Avril: Naissance d'Amanda Claire Hope MacKenzie. <br>
+    </td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td rowspan=2 class=xl13216616 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none'>1978</td>
+  <td rowspan=2 class=xl8416616 width=425 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none;width:319pt'><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    1er novembre: la famille de Brianna débarque sur Ocracoke.</td>
+  <td rowspan=2 class=xl11916616 width=245 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none;width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=120 style='mso-height-source:userset;height:90.0pt'>
+  <td height=120 class=xl7016616 style='height:90.0pt;border-left:none'>&nbsp;</td>
+  <td class=xl8816616 width=455 style='border-left:none;width:341pt'>Juillet: À
+  Wilmington, Brianna et sa famille rencontrent William Ransom, ne sachant pas
+  qu'il est le fils de Jamie et le demi-frère de Brianna. 		<br>
+    22 septembre: William assiste à l'exécution de Nathan Hale . 		<br>
+    1er novembre: Brianna, Roger, Jemmy et Amanda utilisent le cercle de pierre
+  sur Ocracoke pour retourner dans le futur - à cause de la malformation
+  cardiaque congénitale d'Amanda. 	<br>
+    21 décembre: La maison de Fraser's Ridge brule à la «mauvaise» date. Le 21
+  janvier était une erreur de frappe dans la &quot;Wilmington Gazette“.</td>
+  <td rowspan=3 class=xl13916616 width=70 style='width:53pt'>L'Echo des cœurs
+  lointains</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=280 style='height:210.0pt'>
+  <td height=280 class=xl11016616 width=235 style='height:210.0pt;border-top:
+  none;width:176pt'>5 juillet: Bataille de Ticonderoga<br>
+    19 septembre et 7 octobre: Bataille (s) de Saratoga<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1777</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>1er janvier: Mme Bug meurt<br>
+    Jamie et Claire quittent Fraser's Ridge pour New Bern afin de trouver un
+  navire pour l'Écosse.<br>
+    Leur navire est capturé et ils se retrouvent à Fort Ticonderoga, ils
+  participent à la bataille (juillet) alors que les Britanniques commencent
+  leur offensive depuis le nord. 	<br>
+    Jamie et Claire rencontrent Benedict Arnold .<br>
+    Automne : Jamie est blessé lors de la bataille de Saratoga et Claire doit
+  amputer son doigt. Dans le camp sur le terrain, Young Ian rencontre la jeune
+  Quaker Rachel Hunter. <br>
+    Jamie et Claire sont priées de ramener le corps du général Simon Fraser
+  chez lui en Écosse. 	<br>
+    20 décembre: A Edimbourg, Jamie retrouve sa presse à imprimer, qu'Andrew
+  Bell lui garde depuis onze ans.</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl7116616 style='border-top:none'>1979</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>Avec l'aide de Joe Abernathy, Brianna, Roger et les enfants
+  trouvent leur place dans le «présent». Finalement, ils achètent l'ancien
+  domaine familial de Jamie, Lallybroch, en Écosse, et s'y installent.</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=359 style='mso-height-source:userset;height:269.25pt'>
+  <td rowspan=2 height=562 class=xl14416616 width=235 style='border-bottom:
+  .5pt solid #BFBFBF;height:421.5pt;border-top:none;width:176pt'>28 juin:
+  Bataille de Monmouth 	</td>
+  <td rowspan=2 class=xl7016616>&nbsp;</td>
+  <td rowspan=2 class=xl12816616 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none'>1778</td>
+  <td class=xl8716616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>Janvier: Claire et Jamie enterrent le général Simon Fraser à
+  Corrymonie, puis ils se dirigent vers Lallybroch.<br>
+    Mars: Mort de Ian père. Claire repart à Philadelphie pour soigner
+  Henri-Christian. Jamie et Jenny voyageront sur un navire plus tard.	<br>
+    Joan, la soeur de Marsali, part pour Paris. On y retrouve le comte St.
+  Germain et Maître Raymond.<br>
+    William entre dans le camp du général Washington à Valley Forge afin de
+  trouver de l'aide pour son demi-cousin gravement blessé. <br>
+    Le navire qui était censé transporter Jamie en Amérique coule. Lord John
+  persuade Claire de l'épouser pour qu'il puisse la protéger. 	<br>
+    Mai: Alors que les troupes loyalistes préparent leur départ de
+  Philadelphie, le jeune Ian et son ennemi juré Arch Bug se retrouvent dans des
+  circonstances dramatiques ... tout comme Claire et Jamie, et (le 18 juin)
+  William et Jamie, qui ne peuvent plus cacher le fait qu'il ressemble à son
+  fils.<br>
+    <font class="font516616">A. Bell, imprimeur, Édimbourg, publie «Pocket
+  Principles of Health» par CEBR Fraser, MD.<br>
+    A. Bell, imprimeur, Édimbourg, publie «Grandfather Tales» de James
+  Alexander Malcolm Fraser.</font></td>
+  <td rowspan=2 class=xl7316616 width=7 style='width:5pt'>&nbsp;</td>
+  <td rowspan=2 class=xl13216616 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none'>1980</td>
+  <td class=xl9016616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>Milieu d'été: William Buccleigh MacKenzie sort des pierres de
+  Craigh na Dun et vagabonde autour des terres MacKenzie.<br>
+    </td>
+  <td rowspan=2 class=xl11916616 width=245 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none;width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=203 style='mso-height-source:userset;height:152.25pt'>
+  <td height=203 class=xl9516616 width=455 style='height:152.25pt;border-left:
+  none;width:341pt'>28 juin: Jamie se bat avec les généraux Washington,
+  Lafayette et Lee dans la bataille de Monmouth. Lorsque Claire est abattue,
+  Jamie démissionne de l'armée continentale et la famille retourne à
+  Philadelphie. 	<br>
+    Ian et Rachel, ainsi que Dezell Hunter et Dorothea Gray célèbrent un double
+  mariage. 	<br>
+    15 septembre: Rollo, le chien-loup d'Ian, meurt 	<br>
+    18 septembre: Henri-Christian, le fils de Fergus et Marsali, décède
+  lorsqu'un incendie se déclare dans l'imprimerie. Les Fraser passent l'hiver à
+  Savannah, où ils rencontrent à nouveau William dans des circonstances
+  extrêmement dramatiques (mort de Jane).</td>
+  <td rowspan=2 class=xl14116616 width=70 style='width:53pt'>À l'encre de mon
+  cœur</td>
+  <td class=xl8916616 width=425 style='border-left:none;width:319pt'>Septembre:
+  Roger et Brianna récupèrent la boite de lettres de Jamie et Claire. William
+  Buccleigh MacKenzie est découvert. Rob Cameron, un fanatique écossais,
+  kidnappe Jemmy poussant Roger et Buck à se précipiter à travers les pierres
+  de Craigh na Dun.<br>
+    Brianna retrouve Jemmy<span style='mso-spacerun:yes'>  </span>et ils fuient
+  vers les États-Unis, chez Joe Abernathy. <br>
+    Solstice d'hiver: Brianna et les enfants suivent Roger au XVIIIe siècle.</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=160 style='mso-height-source:userset;height:120.0pt'>
+  <td rowspan=2 height=301 class=xl11316616 width=235 style='border-bottom:
+  .5pt solid #BFBFBF;height:225.75pt;border-top:none;width:176pt'>16 septembre
+  - 18 octobre : Le siège de Savannah<br>
+    <br>
+    </td>
+  <td class=xl7016616 style='border-left:none'>&nbsp;</td>
+  <td rowspan=2 class=xl11516616 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none'>1779</td>
+  <td class=xl8716616 width=455 style='width:341pt'>Printemps : Les Fraser
+  rentrent chez eux à Fraser's Ridge, avec la sœur de Jamie, Jenny, avec leur
+  nouvelle pupille, Fanny, et avec le fils ainé de Fergus, Germain. <br>
+    Jamie reprend son poste de chef de la colonie et ils commencent à
+  construire une nouvelle maison. <br>
+    Lors d'un voyage au poste de traite de Beardley, Claire rencontre l'un de
+  ses ravisseurs, qui l'a kidnappée et violée il y a des années. <br>
+    Ian et Rachel célèbrent la naissance d'un bébé en bonne santé. <br>
+    </td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td rowspan=2 class=xl11716616 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none'>1981</td>
+  <td rowspan=2 class=xl8416616 width=425 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none;width:319pt'>&nbsp;</td>
+  <td rowspan=2 class=xl11916616 width=245 style='border-bottom:.5pt solid #BFBFBF;
+  border-top:none;width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=141 style='mso-height-source:userset;height:105.75pt'>
+  <td height=141 class=xl7016616 style='height:105.75pt;border-left:none'>&nbsp;</td>
+  <td class=xl8816616 width=455 style='width:341pt'>17 juin :<span
+  style='mso-spacerun:yes'>  </span>Brianna, Roger et leurs enfants sont de
+  retour au Ridge.<br>
+    15 septembre : Ian, Rachel et Jenny partent à la recherche de l'ex-femme de
+  Ian, Emily.<br>
+    Début octobre : Arrivée des Murray à Canajoharie, colonie de New
+  York.<br>
+    8 octobre 1779 : Roger décide d'accepter d'accompagner Marion sur le champ
+  de bataille. Il sera séparé de sa famille plusieurs jours.</td>
+  <td rowspan=3 class=xl12116616 width=70 style='width:53pt'>L'Adieu aux
+  abeilles</td>
+  <td class=xl7316616 width=7 style='border-left:none;width:5pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=407 style='mso-height-source:userset;height:305.25pt'>
+  <td height=407 class=xl10716616 width=235 style='height:305.25pt;border-top:
+  none;width:176pt'><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    7 octobre 1780 : La bataille de Kings Mountain</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1780</td>
+  <td class=xl9616616 width=455 style='border-left:none;width:341pt'>Avril :
+  Jamie part reconnaissance sur les lieux d’une future bataille, d'après le
+  livre de Frank Randall.<br>
+    10 mai : William fait ses adieux à son ami Cinnamon qui part rencontrer son
+  père à Londres.<br>
+    18 juin : Brianna continue de rédiger dans leur cahier : « théorie sur le
+  voyage dans le temps ».<br>
+    21 juin : Roger est ordonné pasteur.<br>
+    10 juillet : Ulysse fait son apparition au Ridge pour réclamer les terres
+  de Jamie.<br>
+    25 août : William retrouve Amaranthus à Philadelphie.<br>
+    4 septembre : Jamie raconte à Claire qu'il a rêvé de Black Jack.<br>
+    16 septembre : Brianna met au monde son 3ème enfant : David William Ian
+  Fraser Mackenzie.<br>
+    26 septembre : Claire et Jamie sont partis rejoindre la milice de Sevier.<br>
+    7 octobre : C'est le jour de la bataille. Jamie est gravement blessé et
+  sauvé par Claire au bout de 48 heures.<br>
+    22 octobre : Claire opère la jambe de Jamie qui pourra remarcher après
+  quelques temps.</td>
+  <td class=xl7216616 style='border-left:none'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1982</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=131 style='mso-height-source:userset;height:98.25pt'>
+  <td height=131 class=xl10716616 width=235 style='height:98.25pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6816616 style='border-top:none'>1781</td>
+  <td class=xl8116616 width=455 style='border-top:none;border-left:none;
+  width:341pt'>11 février : Jamie et Claire reçoivent le titre de propriété
+  dont Ulysse menaçait de se servir contre eux.<br>
+    Printemps : John Quincy amène Félicité, Germain et Joannie au Ridge.<br>
+    ?? : William débarque pour demander à Jamie de l'aider à secourir Lord
+  John, enlevé par Richardson.</td>
+  <td class=xl7216616 style='border-left:none'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1983</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl10716616 width=235 style='height:30.0pt;border-top:
+  none;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9716616 style='border-top:none'>1782</td>
+  <td class=xl8716616 width=455 style='border-top:none;width:341pt'>Milieu
+  d'été: William Buccleigh MacKenzie, fils de la sorcière Geillis Duncan,
+  disparait dans le cercle de pierres de Craigh na Dun ...<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl9816616 width=70 style='width:53pt'></td>
+  <td class=xl7316616 width=7 style='width:5pt'>&nbsp;</td>
+  <td class=xl9116616 style='border-top:none'>1984</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6616616 width=245 style='border-top:none;border-left:none;
+  width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl11116616 width=235 style='height:15.0pt;width:176pt'></td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6316616>1783</td>
+  <td class=xl10216616>&nbsp;</td>
+  <td class=xl7816616></td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl6416616>&nbsp;</td>
+  <td class=xl8516616 width=425 style='width:319pt'>&nbsp;</td>
+  <td class=xl6516616 width=245 style='width:184pt'></td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl11116616 width=235 style='height:15.0pt;width:176pt'></td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6316616>1784</td>
+  <td class=xl10216616 style='border-top:none'>&nbsp;</td>
+  <td class=xl7816616></td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl6416616>&nbsp;</td>
+  <td class=xl8516616 width=425 style='width:319pt'>&nbsp;</td>
+  <td class=xl6516616 width=245 style='width:184pt'></td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl11116616 width=235 style='height:15.0pt;width:176pt'></td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9316616>1785</td>
+  <td class=xl10116616 style='border-top:none'>&nbsp;</td>
+  <td class=xl7816616></td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl6416616>&nbsp;</td>
+  <td class=xl8516616 width=425 style='width:319pt'>&nbsp;</td>
+  <td class=xl6516616 width=245 style='width:184pt'></td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl11116616 width=235 style='height:15.0pt;width:176pt'></td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9316616>1786</td>
+  <td class=xl10016616>&nbsp;</td>
+  <td class=xl7816616></td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl6416616>&nbsp;</td>
+  <td class=xl8516616 width=425 style='width:319pt'>&nbsp;</td>
+  <td class=xl6516616 width=245 style='width:184pt'></td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl11116616 width=235 style='height:15.0pt;width:176pt'></td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6316616>…</td>
+  <td class=xl10016616>&nbsp;</td>
+  <td class=xl7816616></td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl6416616>&nbsp;</td>
+  <td class=xl8516616 width=425 style='width:319pt'>&nbsp;</td>
+  <td class=xl6516616 width=245 style='width:184pt'></td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl11116616 width=235 style='height:15.0pt;width:176pt'></td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9316616>1838</td>
+  <td class=xl10016616>&nbsp;</td>
+  <td class=xl7816616></td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl6416616>&nbsp;</td>
+  <td class=xl8516616 width=425 style='width:319pt'>&nbsp;</td>
+  <td class=xl6516616 width=245 style='width:184pt'></td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl11116616 width=235 style='height:15.0pt;width:176pt'></td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl9316616>1839</td>
+  <td class=xl9916616>&nbsp;</td>
+  <td class=xl7816616></td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl6416616>&nbsp;</td>
+  <td class=xl8516616 width=425 style='width:319pt'>&nbsp;</td>
+  <td class=xl6516616 width=245 style='width:184pt'></td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl11116616 width=235 style='height:15.0pt;width:176pt'></td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl10516616 style='border-left:none'>1840</td>
+  <td class=xl10316616 style='border-top:none;border-left:none'>&nbsp;</td>
+  <td class=xl10616616 style='border-left:none'>&nbsp;</td>
+  <td class=xl7216616 style='border-left:none'>&nbsp;</td>
+  <td class=xl6416616>&nbsp;</td>
+  <td class=xl8316616 width=425 style='width:319pt'>&nbsp;</td>
+  <td class=xl6516616 width=245 style='width:184pt'></td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl11216616 width=235 style='height:30.0pt;width:176pt'>&nbsp;</td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl10416616>1841</td>
+  <td class=xl9616616 width=455 style='border-left:none;width:341pt'>Le Dr
+  Hector McEwen d'Édimbourg disparait sans laisser de trace lors d'un voyage de
+  chasse dans les Highlands...<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl7716616 width=70 style='width:53pt'>&nbsp;</td>
+  <td class=xl7316616 width=7 style='width:5pt'>&nbsp;</td>
+  <td class=xl7116616>&nbsp;</td>
+  <td class=xl8316616 width=425 style='border-top:none;border-left:none;
+  width:319pt'>&nbsp;</td>
+  <td class=xl6716616 width=245 style='border-left:none;width:184pt'>&nbsp;</td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl11116616 width=235 style='height:15.0pt;width:176pt'></td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6316616>&nbsp;</td>
+  <td class=xl8216616>&nbsp;</td>
+  <td class=xl7816616></td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl6416616>&nbsp;</td>
+  <td class=xl8516616 width=425 style='width:319pt'>&nbsp;</td>
+  <td class=xl6516616 width=245 style='width:184pt'></td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl11116616 width=235 style='height:15.0pt;width:176pt'><!--[if gte vml 1]><v:shape
+   id="ZoneTexte_x0020_5" o:spid="_x0000_s1044" type="#_x0000_t75" style='position:absolute;
+   margin-left:0;margin-top:0;width:1203.75pt;height:62.25pt;z-index:5;
+   visibility:visible;mso-wrap-style:square;v-text-anchor:top' o:gfxdata="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
+" o:insetmode="auto">
+   <v:imagedata src="index_fichiers/index_16616_image007.png" o:title=""/>
+   <o:lock v:ext="edit" aspectratio="f"/>
+   <x:ClientData ObjectType="Pict">
+    <x:SizeWithCells/>
+    <x:CF>Bitmap</x:CF>
+    <x:AutoPict/>
+   </x:ClientData>
+  </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+  position:absolute;z-index:5;margin-left:0px;margin-top:0px;width:1605px;
+  height:83px'><img width=1605 height=83
+  src="index_fichiers/index_16616_image008.png" v:shapes="ZoneTexte_x0020_5"></span><![endif]></td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6316616>&nbsp;</td>
+  <td class=xl8216616>&nbsp;</td>
+  <td class=xl7816616></td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl6416616>&nbsp;</td>
+  <td class=xl8516616 width=425 style='width:319pt'>&nbsp;</td>
+  <td class=xl6516616 width=245 style='width:184pt'></td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl11116616 width=235 style='height:15.0pt;width:176pt'></td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6316616>&nbsp;</td>
+  <td class=xl8216616>&nbsp;</td>
+  <td class=xl7816616></td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl6416616>&nbsp;</td>
+  <td class=xl8516616 width=425 style='width:319pt'>&nbsp;</td>
+  <td class=xl6516616 width=245 style='width:184pt'></td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl11116616 width=235 style='height:15.0pt;width:176pt'></td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6316616>&nbsp;</td>
+  <td class=xl8216616>&nbsp;</td>
+  <td class=xl7816616></td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl6416616>&nbsp;</td>
+  <td class=xl8516616 width=425 style='width:319pt'>&nbsp;</td>
+  <td class=xl6516616 width=245 style='width:184pt'></td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl11116616 width=235 style='height:15.0pt;width:176pt'></td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6316616>&nbsp;</td>
+  <td class=xl8216616>&nbsp;</td>
+  <td class=xl7816616></td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl6416616>&nbsp;</td>
+  <td class=xl8516616 width=425 style='width:319pt'>&nbsp;</td>
+  <td class=xl6516616 width=245 style='width:184pt'></td>
+  <td class=xl6553516616></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl11116616 width=235 style='height:15.0pt;width:176pt'></td>
+  <td class=xl7016616>&nbsp;</td>
+  <td class=xl6316616>&nbsp;</td>
+  <td class=xl8216616>&nbsp;</td>
+  <td class=xl7816616></td>
+  <td class=xl7216616>&nbsp;</td>
+  <td class=xl6416616>&nbsp;</td>
+  <td class=xl8516616 width=425 style='width:319pt'>&nbsp;</td>
+  <td class=xl6516616 width=245 style='width:184pt'></td>
+  <td class=xl6553516616></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=235 style='width:176pt'></td>
+  <td width=7 style='width:5pt'></td>
+  <td width=80 style='width:60pt'></td>
+  <td width=455 style='width:341pt'></td>
+  <td width=70 style='width:53pt'></td>
+  <td width=7 style='width:5pt'></td>
+  <td width=80 style='width:60pt'></td>
+  <td width=425 style='width:319pt'></td>
+  <td width=245 style='width:184pt'></td>
+  <td width=80 style='width:60pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</div>
+
+
+<!----------------------------->
+<!--FIN DE LA SORTIE À PARTIR DE L'ASSISTANT PUBLIER EN TANT QUE PAGE WEB
+D'EXCEL-->
+<!----------------------------->
+</body>
+
 </html>
+
